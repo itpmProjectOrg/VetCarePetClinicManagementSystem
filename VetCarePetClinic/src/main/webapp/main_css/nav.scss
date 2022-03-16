@@ -1,0 +1,265 @@
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px 0 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgb(40, 46, 46);
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-repeat: repeat;
+  background-position: 50% 50%;
+  transition: top 0.5s;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+
+  li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+
+    .search {
+      outline: 0;
+      display: flex;
+      align-content: flex-start;
+
+      .textbox {
+        outline: 0;
+        height: 42px;
+        width: 244px;
+        line-height: 42px;
+        padding: 0 16px;
+        background-color: rgba(38, 50, 56, 0.219);
+        color: #212121;
+        border: 0;
+        float: right;
+        -webkit-border-radius: 4px 0 0 4px;
+        border-radius: 4px 0 0 4px;
+      }
+
+      .textbox:focus {
+        outline: 0;
+        background-color: #fff;
+      }
+
+      .button {
+        outline: 0;
+        background: none;
+        background-color: rgba(38, 50, 56, 0.219);
+        float: left;
+        height: 42px;
+        width: 42px;
+        text-align: center;
+        line-height: 42px;
+        border: 0;
+        color: #465b52;
+        font: normal normal normal 14px/1 "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 16px;
+        text-rendering: auto;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        -webkit-transition: background-color 0.4s ease;
+        transition: background-color 0.4s ease;
+        -webkit-border-radius: 0 4px 4px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .button:hover {
+        background-color: #088178;
+      }
+    }
+  }
+
+  li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  li a:hover,
+  li a.active {
+    color: #465b52;
+  }
+
+  li a.active::after,
+  li a:hover::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: #088178;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+  }
+
+  #shopping a:hover,
+  li a.active {
+    color: #465b52;
+  }
+}
+
+#user-img {
+  cursor: pointer;
+}
+
+.login-logout-popup {
+  position: absolute;
+  background: rgb(255, 255, 255);
+  top: 40px;
+  right: 0px;
+  z-index: 10;
+  width: 170px;
+}
+
+p {
+  margin: 10px 5px;
+  font-size: 16px;
+  color: #465b52;
+  font-weight: 700;
+}
+
+#user-btn {
+  outline: 0;
+  background: none;
+  background-color: rgba(38, 50, 56, 0.8);
+  float: left;
+  height: 20px;
+  width: 100%;
+  text-align: center;
+  line-height: 20px;
+  border: 0;
+  color: #fff;
+  font: normal normal normal 14px/1 "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 12px;
+  text-rendering: auto;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-transition: background-color 0.4s ease;
+  transition: background-color 0.4s ease;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+  cursor: pointer;
+}
+
+.hide {
+  opacity: 0;
+  cursor: none;
+}
+
+#close {
+  display: none;
+  cursor: pointer;
+}
+
+#mobilenav {
+  display: none;
+  align-items: center;
+  color: #465b52;
+  padding-right: 10px;
+
+  #bar {
+    cursor: pointer;
+  }
+}
+
+.logo {
+  margin: 0 0 0 0;
+  font-size: 2rem;
+  font-family: "Supermercado One", cursive;
+  line-height: 50px;
+  color: #2f423c;
+}
+
+.else {
+  color: #088178;
+  font-family: "Supermercado One", cursive;
+  line-height: 50px;
+}
+
+@media (max-width: 825px) {
+  #navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 50%;
+    background-color: white;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+    padding: 80px 0 0 10px;
+    transition: 0.3s ease-in-out;
+
+    form {
+      display: none;
+    }
+
+    li a.active::after,
+    li a:hover::after {
+      content: "";
+      width: 100vw;
+      height: 5px;
+      background: #088178;
+      position: absolute;
+      bottom: 25px;
+      left: 10px;
+    }
+  }
+
+  #navbar li {
+    padding: 0 0 30px 20px;
+  }
+
+  #navbar #close {
+    color: #465b52;
+  }
+
+  #navbar.active {
+    right: 0px;
+  }
+
+  #header #mobilenav {
+    display: flex;
+    align-content: flex-end;
+  }
+
+  #close {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    color: #000;
+    font-size: 24px;
+  }
+
+  #shopingbag {
+    display: none;
+  }
+
+  i {
+    padding-left: 20px;
+  }
+
+  .logo {
+    font-size: 40px;
+    padding: 0 20px;
+  }
+
+  #header {
+    padding: 0px 0;
+  }
+}
+
+#hide {
+  display: none;
+}
