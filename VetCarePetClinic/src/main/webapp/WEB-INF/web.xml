@@ -9,4 +9,33 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  
+    <servlet>
+       <servlet-name>petownerinsert</servlet-name>
+       <servlet-class>com.petprofile.servlets.PetOwnerInsert</servlet-class>
+    </servlet>
+    <servlet-mapping>
+       <servlet-name>petownerinsert</servlet-name>
+       <url-pattern>/ownerinsert</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>petownerupdate</servlet-name>
+    	<servlet-class>com.petprofile.servlets.PetOwnerUpdate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>petownerupdate</servlet-name>
+    	<url-pattern>/update</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>petinsert</servlet-name>
+    	<servlet-class>com.petprofile.servlets.PetInsert</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>petinsert</servlet-name>
+    	<url-pattern>/petinsert</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
