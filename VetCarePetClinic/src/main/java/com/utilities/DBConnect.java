@@ -4,8 +4,8 @@ import java.sql.*;
 public class DBConnect {
 	
 	private static String url = "jdbc:mysql://localhost:3306/vetcaredb";
-	private static String uname = "";
-	private static String pwd = "";
+	private static String uname = "rame123";
+	private static String pwd = "rootpwd";
 	
 	public static Connection getDBConnection(){
 		

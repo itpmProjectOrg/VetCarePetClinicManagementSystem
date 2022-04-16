@@ -38,4 +38,23 @@
     	<url-pattern>/petinsert</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+    	<servlet-name>searchpet</servlet-name>
+    	<servlet-class>com.petprofile.servlets.PetSearch</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>searchpet</servlet-name>
+    	<url-pattern>/petsearch</url-pattern>
+    </servlet-mapping>
+    
+      <servlet>
+    	<servlet-name>searchpetOwner</servlet-name>
+    	<servlet-class>com.petprofile.servlets.PetOwnerSearch</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>searchpetOwner</servlet-name>
+    	<url-pattern>/petownersearch</url-pattern>
+    </servlet-mapping>
+    
+    
 </web-app>
