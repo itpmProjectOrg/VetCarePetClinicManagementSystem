@@ -11,7 +11,7 @@
   </welcome-file-list>
   
   
-    <servlet>
+	<servlet>
        <servlet-name>petownerinsert</servlet-name>
        <servlet-class>com.petprofile.servlets.PetOwnerInsert</servlet-class>
     </servlet>
@@ -26,7 +26,16 @@
     </servlet>
     <servlet-mapping>
     	<servlet-name>petownerupdate</servlet-name>
-    	<url-pattern>/update</url-pattern>
+    	<url-pattern>/updatepetowner</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+    	<servlet-name>petupdate</servlet-name>
+    	<servlet-class>com.petprofile.servlets.PetUpdate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>petupdate</servlet-name>
+    	<url-pattern>/updatepet</url-pattern>
     </servlet-mapping>
     
     <servlet>
