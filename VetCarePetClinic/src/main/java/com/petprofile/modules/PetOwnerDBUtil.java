@@ -52,7 +52,8 @@ public class PetOwnerDBUtil {
 		    		
 		    		con = DBConnect.getDBConnection();
 		    		stmt = con.createStatement();
-		    		String sql = "update petowner set name='"+name+"',addr='"+addr+"',contactNo='"+contactNo+"'";
+		    		String sql = "update petowner set name='"+name+"',addr='"+addr+"',contactNo='"+contactNo+"'"
+		    		+ "where ownerID='"+id+"'";
 		    		int rs = stmt.executeUpdate(sql);
 		    		
 		    		if(rs > 0) {

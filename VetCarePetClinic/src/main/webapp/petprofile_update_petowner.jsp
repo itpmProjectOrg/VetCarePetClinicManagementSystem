@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -76,11 +73,11 @@ try{
              <br/>  
              <div class="container" style="width:50%">
               
-             <form action="update" method="post">
+             <form action="updatepetowner" method="post">
              <input type="hidden" name="patid" value="<%=resultSet.getString("ownerID") %>">
              <div class="form-group" >
                 <label>Pet Owner's ID</label>
-                <input type="text" name="id" class="form-control" value="<%=resultSet.getString("ownerID") %>" readonly >
+                <input type="text" name="ownerID" class="form-control" value="<%=resultSet.getString("ownerID") %>" readonly >
              </div>
              
               <div class="form-group" >
@@ -95,11 +92,10 @@ try{
                                                        
              <div class="form-group">
                <label>Contact Number</label>
-               <input type="tel" name="contactno" class="form-control"  value="<%=resultSet.getString("contactNo") %>" >
+               <input type="tel" name="contactNo" class="form-control"  value="<%=resultSet.getString("contactNo") %>" >
              </div>
   
-             <button type="submit" class="btn btn-success" style="width:100%">EDIT</button>
-            
+               <input type="submit" value="EDIT" class="btn btn-success" style="width:100%">
              </form>
               
              <%
