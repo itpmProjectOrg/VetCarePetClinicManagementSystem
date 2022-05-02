@@ -10,36 +10,42 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.petprofile.modules.PetOwner;
-import com.petprofile.modules.PetOwnerDBUtil;
+import com.petprofile.modules.PetDBUtil;
+import com.petprofile.modules.Pet;
 
 
-@WebServlet("/PetOwnerUpdate")
-public class PetOwnerUpdate extends HttpServlet {
+
+@WebServlet("/PetUpdate")
+public class PetUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
+   
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		String petID = request.getParameter("petID");
 		String ownerID = request.getParameter("ownerID");
 		String name = request.getParameter("name");
-		String addr = request.getParameter("addr");
-		String contactNo = request.getParameter("contactNo");
-	
+		String petType = request.getParameter("petType");
+		String breed = request.getParameter("breed");
+		String sex = request.getParameter("sex");
+		String dob = request.getParameter("dob");
+		String date = request.getParameter("date");
+		
         boolean isTrue;
 		
-		isTrue = PetOwnerDBUtil.updatePetOwner(ownerID, name, addr, contactNo);
+		isTrue = PetDBUtil.updatePet(petID,ownerID, name, petType, breed, sex, dob, date);
 		
         if(isTrue == true) {
 			
-			List<PetOwner> patDetails = PetOwnerDBUtil.getPetOwnerDetails(ownerID);
+			List<Pet> patDetails = PetDBUtil.getPetDetails(petID);
 			request.setAttribute("patDetails", patDetails);
 			
 			RequestDispatcher dis = request.getRequestDispatcher("petprofile_update_success.jsp");
 			dis.forward(request, response);
 		}
 		else {
-			List<PetOwner> patDetails = PetOwnerDBUtil.getPetOwnerDetails(ownerID);
+			List<Pet> patDetails = PetDBUtil.getPetDetails(petID);
 			request.setAttribute("patDetails", patDetails);
 			
 			RequestDispatcher dis = request.getRequestDispatcher("petprofile_update_unsuccess.jsp");
@@ -47,5 +53,6 @@ public class PetOwnerUpdate extends HttpServlet {
 		}
 		
 	}
-
 }
+
+
