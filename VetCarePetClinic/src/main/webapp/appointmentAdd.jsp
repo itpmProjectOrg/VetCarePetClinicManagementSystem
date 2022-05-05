@@ -69,7 +69,7 @@
 					      <label for="aOwnerID" class = "appointAddLabel">Pet Owner ID:</label>
 					      <input type="number" class="form-control form-control-sm" name="aOwnerID" placeholder="Enter Owner ID" min = "1" required>
 					    </div>
-					    <h6 class = "appointRefLinks"><a href="">Don't know Owner ID?</a></h6>
+					    <h6 class = "appointRefLinks"><a href="petprofile_ownerlist.jsp">Don't know Owner ID?</a></h6>
 					   	<br/>
 					   
 					    <div class="form-group" >

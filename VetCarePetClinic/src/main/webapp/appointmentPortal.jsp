@@ -85,7 +85,7 @@
 	    				
 	    				<div class="form-group col-md-1 ">
 	    					<label for=""></label>
-	      					<button type="submit" name = "appointSearchBtn" class="form-control form-control-sm btn  btn-secondary btn-sm">
+	      					<button type="submit" name = "appointSearchBtn" class="form-control form-control-sm btn  btn-success btn-sm">
     							<i class="fa fa-search" aria-hidden="true"></i> 
 							</button>
 	    				</div>
