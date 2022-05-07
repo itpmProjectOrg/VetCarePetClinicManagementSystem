@@ -18,7 +18,7 @@ public class PetDBUtil {
 	private static ResultSet rs = null;
     
 	
-    
+    //insert
     public static boolean insertPet(int ownerID,String name, String petType, String breed, String sex, String dob, String date) {
     	
     	boolean isSuccess = false;
@@ -120,7 +120,7 @@ public class PetDBUtil {
 	    	return pat;	
 	    }
 	 	 
-	 
+	 //delete
 	 public static boolean deletePet(String id) {
 	    	
 	    	int convId = Integer.parseInt(id);

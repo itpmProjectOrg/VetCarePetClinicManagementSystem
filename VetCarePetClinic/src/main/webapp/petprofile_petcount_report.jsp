@@ -86,21 +86,23 @@ ResultSet resultSet1 = null;
 		
 
              <center>
-               <table border =1px;>
+             <div class="container">
+               <table class="table table-striped">
 	
 	            <h1>Pet Count Report</h1>
 	             <p style="width: 50%;margin:0% 5%">Date&Time:<%=new Date().toString()%> </p>  
-            
+                <thead>
 		        <tr >
-		           <th><h3>petID<h3></th>
-			       <th><h3>ownerID<h3></th>
-			       <th><h3>name<h3></th>
-			       <th><h3>petType<h3></th>
-			       <th><h3>breed<h3></th>
-			       <th><h3>sex<h3></th>
-			       <th><h3>dob<h3></th>
-			       <th><h3>Date<h3></th>
+		           <th scope="col">PetId</th>
+			       <th scope="col">OwnerID</th>
+			       <th scope="col">Pet Name</th>
+			       <th scope="col">Type</th>
+			       <th scope="col">Breed</th>
+			       <th scope="col">Sex</th>
+			       <th scope="col">DOB</th>
+			       <th scope="col">Date</th>
 			    </tr>
+			    <thead>
 		    	<br>
 		        <br>
 		        <br>
@@ -121,6 +123,7 @@ ResultSet resultSet1 = null;
 				   while (resultSet.next()) {
 
 		        %>
+		       <tbody> 
 		       <tr>
 			      <td><%=resultSet.getString("petID")%></td>
 			      <td><%=resultSet.getString("ownerID")%></td>
@@ -130,7 +133,8 @@ ResultSet resultSet1 = null;
 			      <td><%=resultSet.getString("sex")%></td>
 			      <td><%=resultSet.getString("dob")%></td>
 			      <td><%=resultSet.getString("date")%></td>
-			  </tr> 
+			  </tr>  
+			  <tbody>
 		      <%
 		        }
 				
@@ -147,7 +151,7 @@ ResultSet resultSet1 = null;
 				
 				%>
 			 <tr class="back">
-				 <td><h4> Monthly total patients</h4> </td>
+				 <td><h4>Total number of Patients</h4> </td>
 			     <td><h4><%=resultSet1.getString("count")%></h4></td>
 			</tr>
 			   <%			
@@ -158,7 +162,7 @@ ResultSet resultSet1 = null;
 		       %>
 			
 	      </table>
-	
+	     </div>
 	      <div class="row mt-4">
 	        <div class="col-md-12">
 	         <p class="font-weight-bold m-0 p-0 mt-1 ml-5">Prepaired By: ................................................ </p><br>
