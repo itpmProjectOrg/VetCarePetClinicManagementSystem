@@ -5,7 +5,7 @@ const createFooter = () => {
         
   <div class="col">
   <h1 class="logobot">Vet<span class="else">Care</span></h1>
-  <h4>Contact</h4>
+  <h4>Contact Us</h4>
   <p><strong>Phone:</strong> 071 0000 111 / 011 111 1111</p>
   <p><strong>Email:</strong> vetcare@pxxxxt.com</p>
   <p><strong>WhatsApp:</strong> 071 0000 111</p>

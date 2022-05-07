@@ -1,0 +1,51 @@
+@import url("../../../main_css/footer.css");
+@import url("../../../main_css/nav.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+}
+
+.appointBtn{
+	width:100%;
+	font-size: 15px !important;
+	padding:8px !important;
+	
+}
+
+#appointPortalBg{
+	background-color: #E3EBEA;
+	border: 1px solid black;
+	padding: 20px;
+	
+}
+.appointSearchLabel{
+	font-size:15px !important;
+}
+.areportFontH6{
+	font-size:18px !important;
+	font-family: Calibri Light !important;
+}
+
+.areportFontH6Bolded{
+	font-size:18px !important;
+	font-family: Calibri Light !important;
+	font-weight: bold !important;
+}
+.areportFontHeader{
+	font-size:19px !important;
+	font-family: Bodoni MT !important;
+	font-style: italic;
+}
+
+
+@media(max-width: 825px){
+	
+	.appointBtn{
+		width: 100%;
+		font-size: 13px !important;
+	}
+}

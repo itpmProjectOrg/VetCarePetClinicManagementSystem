@@ -8,7 +8,7 @@ const createNav = () => {
         <div>
           <ul id="navbar">
             <li><a href="main_homepage.jsp#hero">Home</a></li>
-            <li><a href="">Appoinment</a></li>
+            <li><a href="appointmentPortal.jsp">Appoinment</a></li>
             <li><a href="petprofile_mainpage.jsp">Pet Profile</a></li>
             <li><a href="">Vet's Portal</a></li>
             <li><a href="">Medical Records</a></li>

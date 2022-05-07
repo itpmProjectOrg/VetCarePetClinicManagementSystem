@@ -11,7 +11,7 @@
   </welcome-file-list>
   
   
-    <servlet>
+	<servlet>
        <servlet-name>petownerinsert</servlet-name>
        <servlet-class>com.petprofile.servlets.PetOwnerInsert</servlet-class>
     </servlet>
