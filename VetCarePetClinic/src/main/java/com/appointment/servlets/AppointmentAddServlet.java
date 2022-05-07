@@ -43,25 +43,25 @@ public class AppointmentAddServlet extends HttpServlet {
 					//insert data to database
 					Boolean isInsert = AppointmentDBUtil.insertAppointment(aownerID, aVetSurgeon, aDate, aTime, aPayment, aStatus, appointmentNo);
 					if(isInsert == true) {
-						request.setAttribute("Msg", "**New Appointment is successully added...");
-						request.setAttribute("AppointNoMsg", "***Appointment No: ");
+						request.setAttribute("Msg", "New Appointment is successully added...");
+						request.setAttribute("AppointNoMsg", "Appointment No: ");
 						request.setAttribute("appointNo", appointmentNo);
 					}
 					else {
-						request.setAttribute("ErrorMsg1", "**Oops..Appointment details are invalid.Please try again..");
+						request.setAttribute("ErrorMsg1", "Oops..Appointment details are invalid.Please try again..");
 					}
 				}
 				else {
-					request.setAttribute("appointNoError", "**Maximum Limit is exceeded");
+					request.setAttribute("appointNoError", "Maximum Limit is exceeded");
 				}
 			
 			}
 			else if(isAppointTimeValid == false) {
-				request.setAttribute("ErrorMsg1", "**Veterinarian is not available at selected time.");
+				request.setAttribute("ErrorMsg1", "Veterinarian is not available at selected time.");
 				request.setAttribute("ErrorMsg2", "Please check availability schedule");		
 			}
 			else {
-				request.setAttribute("ErrorMsg1", "**Appointment is already exists");
+				request.setAttribute("ErrorMsg1", "Appointment is already exists");
 			}
 			
 			request.setAttribute("vetSurgeons", vetNames);
