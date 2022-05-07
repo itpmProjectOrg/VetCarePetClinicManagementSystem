@@ -31,11 +31,19 @@ public class PetOwnerInsert extends HttpServlet {
 			
 				//navigate to another page
 			    if(isTrue == true) {
-			    	RequestDispatcher dis = request.getRequestDispatcher("petprofile_addowner_success.jsp");
-			    	dis.forward(request, response);
+			    	out.println("<script type=\"text/javascript\">");
+					out.println("alert('Inserted Successfully!');");
+					out.println("location='petprofile_ownerlist.jsp';");
+					out.println("</script>");
+			    	//RequestDispatcher dis = request.getRequestDispatcher("petprofile_addowner_success.jsp");
+			    	//dis.forward(request, response);
 			    }else {
-			    	RequestDispatcher dis2 = request.getRequestDispatcher("petprofile_addowner_unsuccess.jsp");
-			    	dis2.forward(request, response);
+			    	out.println("<script type=\"text/javascript\">");
+					out.println("alert('Inserted Unsuccessfully');");
+					out.println("location='petprofile_ownerlist.jsp';");
+					out.println("</script>");
+			    	//RequestDispatcher dis2 = request.getRequestDispatcher("petprofile_addowner_unsuccess.jsp");
+			    	//dis2.forward(request, response);
 			    }
 	}
 

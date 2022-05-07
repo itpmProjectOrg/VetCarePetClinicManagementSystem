@@ -34,11 +34,19 @@ public class PetInsert extends HttpServlet {
 		isTrue = PetDBUtil.insertPet(ownerID, name, petType, breed, sex, dob, date);
 		
 		if(isTrue == true) {
-			RequestDispatcher dis = request.getRequestDispatcher("petprofile_addpet_success.jsp");
-	    	dis.forward(request, response);
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('Inserted Successfully!');");
+			out.println("location='petprofile_petlist.jsp';");
+			out.println("</script>");
+			//RequestDispatcher dis = request.getRequestDispatcher("petprofile_addpet_success.jsp");
+	    	//dis.forward(request, response);
 		} else {
-			RequestDispatcher dis2 = request.getRequestDispatcher("petprofile_addpet_unsuccess.jsp");
-	    	dis2.forward(request, response);
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('Inserted Successfully!');");
+			out.println("location='petprofile_petlist.jsp';");
+			out.println("</script>");
+			//RequestDispatcher dis2 = request.getRequestDispatcher("petprofile_addpet_unsuccess.jsp");
+	    	//dis2.forward(request, response);
 		}
 	}
 

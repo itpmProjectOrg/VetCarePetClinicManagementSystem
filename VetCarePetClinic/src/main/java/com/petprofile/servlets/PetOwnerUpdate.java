@@ -1,6 +1,7 @@
 package com.petprofile.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -25,7 +26,8 @@ public class PetOwnerUpdate extends HttpServlet {
 		String name = request.getParameter("name");
 		String addr = request.getParameter("addr");
 		String contactNo = request.getParameter("contactNo");
-	
+		PrintWriter out = response.getWriter();
+		
         boolean isTrue;
 		
 		isTrue = PetOwnerDBUtil.updatePetOwner(ownerID, name, addr, contactNo);
@@ -35,15 +37,24 @@ public class PetOwnerUpdate extends HttpServlet {
 			List<PetOwner> patDetails = PetOwnerDBUtil.getPetOwnerDetails(ownerID);
 			request.setAttribute("patDetails", patDetails);
 			
-			RequestDispatcher dis = request.getRequestDispatcher("petprofile_update_success.jsp");
-			dis.forward(request, response);
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('Updated Successfully!');");
+			out.println("location='petprofile_ownerlist.jsp';");
+			out.println("</script>");
+			//RequestDispatcher dis = request.getRequestDispatcher("petprofile_update_success.jsp");
+			//dis.forward(request, response);
 		}
 		else {
 			List<PetOwner> patDetails = PetOwnerDBUtil.getPetOwnerDetails(ownerID);
 			request.setAttribute("patDetails", patDetails);
 			
-			RequestDispatcher dis = request.getRequestDispatcher("petprofile_update_unsuccess.jsp");
-			dis.forward(request, response);
+			
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('Updated Successfully!');");
+			out.println("location='petprofile_ownerlist.jsp';");
+			out.println("</script>");
+			//RequestDispatcher dis = request.getRequestDispatcher("petprofile_update_unsuccess.jsp");
+			//dis.forward(request, response);
 		}
 		
 	}

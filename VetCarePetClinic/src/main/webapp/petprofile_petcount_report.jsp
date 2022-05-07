@@ -11,7 +11,7 @@
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-String id = request.getParameter("id");
+String id = request.getParameter("petID");
 String driver = "com.mysql.jdbc.Driver";
 String connectionUrl = "jdbc:mysql://localhost:3306/";
 String database = "vetcaredb";
@@ -49,12 +49,13 @@ ResultSet resultSet1 = null;
       crossorigin="anonymous"
     ></script>
     
+    
+       <title>Pet count report</title>
+    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
     <script src="JavaScriptSources/St_search.js"></script>
 
-    
-    
-   <title>Pet count report</title>
+
    
     <!-- our style sheet should be here -->
      <link rel="stylesheet" href="Styles/PetProfileStyles/css/PetProfileStyle.css" />
@@ -68,144 +69,114 @@ ResultSet resultSet1 = null;
     
      <!-- coding starts from here -->
    
-        
+    <div className="container" style="background-color:#ffffff;">  
        <div className="container" id="list" >
-          <br/>
-          <br/>     
-              
-        <div class="container" style="background-color:#ffffff;">
-            <br/>
-            <br/> 
-            <h3 class="text-body" style="text-align:center;">Pet Count Report </h3> 
-             <br/>
-             <br/>  
-            
-            <center> 
-            <p style="width: 50%;margin:0% 5%">Date&Time:<%=new Date().toString()%> </p>  
-            </center>  
-            <br/>
-            
-             <table class="table table-striped">
-                <thead>
-                   <tr>
-                     <th scope="col">Pet ID</th>
-                     <th scope="col">Owner ID</th>
-                     <th scope="col">Pet Name</th>
-                     <th scope="col">Pet Type</th>
-                     <th scope="col">Breed</th>
-                     <th scope="col">Sex</th>
-                     <th scope="col">DOB</th>
-                     <th scope="col">Registered Date</th>
-                    
-                    
-                  </tr>
-               </thead>
-               <tbody>
-                  <%
-		            try {
-			           String month = request.getParameter("Month");
+       
+         <fieldset> 
+	       <center>
+	
+		
+	      </center>
+	      <!-- table -->
+	      <br>
+	      <br>
 
-			            connection = DriverManager.getConnection(connectionUrl + database, userid, password);
-			            statement = connection.createStatement();
+         <div id="list">
+
+		
+
+             <center>
+               <table border =1px;>
+	
+	            <h1>Pet Count Report</h1>
+	             <p style="width: 50%;margin:0% 5%">Date&Time:<%=new Date().toString()%> </p>  
+            
+		        <tr >
+		           <th><h3>petID<h3></th>
+			       <th><h3>ownerID<h3></th>
+			       <th><h3>name<h3></th>
+			       <th><h3>petType<h3></th>
+			       <th><h3>breed<h3></th>
+			       <th><h3>sex<h3></th>
+			       <th><h3>dob<h3></th>
+			       <th><h3>Date<h3></th>
+			    </tr>
+		    	<br>
+		        <br>
+		        <br>
+			
+
+	        	<%
+		           try {
+			          String month = request.getParameter("Month");
+
+			          connection = DriverManager.getConnection(connectionUrl + database, userid, password);
+			          statement = connection.createStatement();
 			
 		
-				        String sql = "select *   from pet where date like '"+month+"%'";
-				        resultSet = statement.executeQuery(sql);
+				      String sql = "select *   from pet where date like '"+month+"%'";
+				      resultSet = statement.executeQuery(sql);
 				
 
-				       while (resultSet.next()) {
+				   while (resultSet.next()) {
 
-		           %>
-
-                  <tr>
-                    <td><%=resultSet.getString("petID") %></td>
-                    <td><%=resultSet.getString("ownerID") %></td>
-                    <td><%=resultSet.getString("name") %></td>
-                    <td><%=resultSet.getString("petType") %></td>
-                    <td><%=resultSet.getString("breed") %></td>
-                    <td><%=resultSet.getString("sex") %></td>
-                    <td><%=resultSet.getString("dob") %></td>
-                    <td><%=resultSet.getString("date") %></td>
-                 </tr>
-                 <%
-		          }
+		        %>
+		       <tr>
+			      <td><%=resultSet.getString("petID")%></td>
+			      <td><%=resultSet.getString("ownerID")%></td>
+			      <td><%=resultSet.getString("name")%></td>
+			      <td><%=resultSet.getString("petType")%></td>
+			      <td><%=resultSet.getString("breed")%></td>
+			      <td><%=resultSet.getString("sex")%></td>
+			      <td><%=resultSet.getString("dob")%></td>
+			      <td><%=resultSet.getString("date")%></td>
+			  </tr> 
+		      <%
+		        }
 				
-				   String sql1 = "select COUNT(petID) AS count from pet where date like '"+month+"%' ";
-				   resultSet1 = statement.executeQuery(sql1);
+				 String sql1 = "select COUNT(petID) AS count from pet where date like '"+month+"%' ";
+				 resultSet1 = statement.executeQuery(sql1);
 
-				   Float count;	
+				 Float count;	
+				 	
+				 if(resultSet1.next()){
 					
-				   if(resultSet1.next()){
-					
-					  count =resultSet1.getFloat("count");
+					count =resultSet1.getFloat("count");
 
-				 }
+				}
 				
-				 %>
-				<tr>
-				    <br/><br/><center>
-				    <td><h6> Total number of pets have visited to the clinic</h6> </td>
-					<td><h6><%=resultSet1.getString("count")%></h6></td>
-					</center>
-					 
-					
-					
-				</tr>
-		  <%
-			 connection.close();
-		   } catch (Exception e) {
-		    	e.printStackTrace();
-		   }
-		  %>
-		    			
-              </tbody>
-           </table>
-            
-             <br/> 
-              <center>     
-	          <p class="font-weight-bold m-0 p-0 mt-1 ml-5">Prepaired By: ................................................ </p><br/>
-	          <p class="font-weight-bold m-0 p-0 mt-1 ml-5">Prepaired Date: ................................................ </p>
-	         </center>
-	         <br/>
-	 
-	         <center>  
-	          <button onclick="print()" class="btn btn-success">Download  Report</button>
-	          <br/>
-	       
-              <a href="petprofile_report_search.jsp">
-                  <button type="button" class="btn btn-success" style="width:150px;">Back</button>
-              </a>
-                 
-	          
-             </center>
-
+				%>
+			 <tr class="back">
+				 <td><h4> Monthly total patients</h4> </td>
+			     <td><h4><%=resultSet1.getString("count")%></h4></td>
+			</tr>
+			   <%			
+		         connection.close();
+		       } catch (Exception e) {
+		             e.printStackTrace();
+		       }
+		       %>
+			
+	      </table>
 	
-	       <script >
+	      <div class="row mt-4">
+	        <div class="col-md-12">
+	         <p class="font-weight-bold m-0 p-0 mt-1 ml-5">Prepaired By: ................................................ </p><br>
+	         <p class="font-weight-bold m-0 p-0 mt-1 ml-5">Prepaired Date: ................................................ </p>
 	
-	          function print(){
-	          var element = document.getElementById("list");
-	          var opt = {
-	             margin:       1,
-	             filename:     'Pet count report.pdf',
-	             image:        { type: 'jpeg', quality: 0.98 },
-	             html2canvas:  { scale: 2 },
-	             jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-	         };
-	 
-	           // New Promise-based usage:
-	            html2pdf().from(element).set(opt).save();
-	
-	        }
-	
-	     </script>
-	     <br/>
+	     </center>
+          </div> 
         </div>
-         
-       
-         <br/>
-         <br/>
+		<br>
+	
+      </fieldset> 
+          
+          	<br>
+          		<br>
+          			<br>
+          				<br>
       </div>
-     
+    
     
     
   
