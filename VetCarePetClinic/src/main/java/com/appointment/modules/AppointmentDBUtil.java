@@ -513,5 +513,15 @@ public class AppointmentDBUtil {
 		return totalIncome;
 	}
 	
+	//validation of update appointment
+	public static boolean isUpdateValid(double payment,String paymentStatus) {
+		boolean isValid = true;
+		if(paymentStatus.equals("completed")){
+			if(payment <= 0) {
+				isValid = false;
+			}
+		}
+		return isValid;
+	}
 
 }

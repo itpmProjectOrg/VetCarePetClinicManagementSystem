@@ -26,14 +26,20 @@ public class AppointmentUpdateServlet extends HttpServlet {
 			int appID = Integer.parseInt(request.getParameter("appointIDForUpdateForm"));
 			vetNames = AppointmentDBUtil.getVetSurgeonNames();
 			
-			boolean isUpdate = AppointmentDBUtil.updateAppointment(payment, paymentStatus, appID);
-			if(isUpdate == true) {
-				request.setAttribute("updateConfirmation", "***Appointment is updated successfully..");	
+			boolean isUpdateValid = AppointmentDBUtil.isUpdateValid(payment, paymentStatus);
+			if(isUpdateValid == true) {
+				boolean isUpdate = AppointmentDBUtil.updateAppointment(payment, paymentStatus, appID);
+				if(isUpdate == true) {
+					request.setAttribute("updateConfirmation", "***Appointment is updated successfully..");	
+				}
+				else {
+					request.setAttribute("updateConfirmation", "***Oops..Update is not successful..");	
+				}
 			}
 			else {
-				request.setAttribute("updateConfirmation", "***Oops..Update is not successful..");	
+				request.setAttribute("updateConfirmation", "***Updated is not successfulL.Updated data might be invalid.Please try again..");
 			}
-			
+				
 			request.setAttribute("vetSurgeons", vetNames); 
 			RequestDispatcher rd = request.getRequestDispatcher("appointmentPortal.jsp");
 			rd.forward(request, response);
