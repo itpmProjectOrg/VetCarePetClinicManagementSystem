@@ -26,10 +26,10 @@ public class AppointmentDeleteServlet extends HttpServlet {
 			boolean isDeleted = AppointmentDBUtil.deleteAppointment(appointID);
 			
 			if(isDeleted == true) {
-				request.setAttribute("appointDeleteConfirmation", "***Appointment is deleleted successufully");
+				request.setAttribute("appointDeleteConfirmation", "Appointment is deleleted successufully");
 			}
 			else {
-				request.setAttribute("appointDeleteConfirmation", "***Deletion is not successfull");
+				request.setAttribute("appointDeleteConfirmation", "Deletion is not successfull");
 			}
 			
 			request.setAttribute("vetSurgeons", vetNames); 

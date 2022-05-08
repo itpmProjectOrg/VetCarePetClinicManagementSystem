@@ -146,7 +146,8 @@
 				  	<h6 style = "color:black !important;text-align:center !important;font-size:16px !important;">${appointDeleteConfirmation} </h6>
 				  	<!-- display update form result -->	
 				  	<h6 style = "color:black !important;text-align:center !important;font-size:16px !important;">${updateConfirmation}</h6> 
-				  
+				  	<h6 style = "color:blue !important;text-align:center !important;font-size:14px !important;">${updateConfirmation1}</h6> 
+					
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					  <span aria-hidden="true">&times;</span>
 					</button>

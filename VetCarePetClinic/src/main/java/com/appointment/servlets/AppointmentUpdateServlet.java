@@ -30,14 +30,15 @@ public class AppointmentUpdateServlet extends HttpServlet {
 			if(isUpdateValid == true) {
 				boolean isUpdate = AppointmentDBUtil.updateAppointment(payment, paymentStatus, appID);
 				if(isUpdate == true) {
-					request.setAttribute("updateConfirmation", "***Appointment is updated successfully..");	
+					request.setAttribute("updateConfirmation", "Appointment is updated successfully..");	
 				}
 				else {
-					request.setAttribute("updateConfirmation", "***Oops..Update is not successful..");	
+					request.setAttribute("updateConfirmation", "Oops..Update is not successful..");	
 				}
 			}
 			else {
-				request.setAttribute("updateConfirmation", "***Updated is not successfulL.Updated data might be invalid.Please try again..");
+				request.setAttribute("updateConfirmation", "Update is not successfull");
+				request.setAttribute("updateConfirmation1", "Updated data might be invalid.Please try again..");
 			}
 				
 			request.setAttribute("vetSurgeons", vetNames); 
