@@ -135,13 +135,13 @@
 		</div>
 	</div>
 	
-	
+
 	<div class = container>
 		<section id="footer" class="section-p1"></section>
 	</div>
 	
 	<script src="main_js/nav.js"></script>
 	<script src="main_js/footer.js"></script> 
-
+	
 </body>
 </html>
